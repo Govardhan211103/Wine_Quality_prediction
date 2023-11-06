@@ -33,11 +33,14 @@ class ModelEvaluation:
         test_y = test_data[[self.config.target_column]]
 
 
-        mlflow.set_registry_uri(self.config.mlflow_uri)
+        mlflow.set_tracking_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
+        mlflow.create_experiment("Experiment_1")
+        ex = mlflow.get_experiment_by_name("Experiment_1")
 
-        with mlflow.start_run():
+        exp_id = ex.experiment_id
+        with mlflow.start_run(experiment_id = exp_id):
 
             predicted_qualities = model.predict(test_x)
 

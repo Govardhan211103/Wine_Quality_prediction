@@ -127,7 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+mlflowenv3/
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 artifacts/*
+mlruns/*
